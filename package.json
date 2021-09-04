@@ -1,0 +1,25 @@
+{
+  "name": "proovitooadaptavist",
+  "jest": {
+    "verbose": true
+  },
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "build": "tsc"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/jest": "^27.0.1",
+    "@types/node": "^16.7.10",
+    "ts-jest": "^27.0.5"
+  },
+  "devDependencies": {
+    "jest": "^27.1.0",
+    "typescript": "^4.4.2"
+  }
+}
