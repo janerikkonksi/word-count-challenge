@@ -12,8 +12,7 @@ describe('Testing the data processing', () => {
     })
     test("test random text with symbols", async () => {
         expected.set("aabits", 3)
-        console.log(processTheData("AAbi"))
-        expect(processTheData("aabits aabits Aabits")).toEqual(expected)
+        expect(processTheData("aabits? aabits! aabits:")).toEqual(expected)
     })
 
 })
