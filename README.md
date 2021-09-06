@@ -4,7 +4,10 @@
 ```
 npm i
 ```
-
+## Go to src folder to run
+```
+cd src
+```
 ## Run application
 ```
 Without compiling: 

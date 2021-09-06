@@ -37,4 +37,5 @@ export const myMainMethod =  (path: string) => {
 }
 
 //Not the best option, but it was easier to test function
+//At first I had 3 separate methods - fileread, dataprocessing and main. It would be more correct to test the methods separately, but this way it was easier to grasp the program.
 myMainMethod(process.argv[2]);
