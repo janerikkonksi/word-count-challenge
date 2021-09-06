@@ -22,6 +22,6 @@ Example:
 
 ## Run tests
 ```
-npm test
+npm test 
 ```
 
