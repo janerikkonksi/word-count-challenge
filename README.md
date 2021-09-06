@@ -20,7 +20,3 @@ Example: npx ts-node WordCount.ts ../testText.txt
 npm test
 ```
 
-## Run tests with coverage
-```
-npm run test:coverage
-```

@@ -1,39 +1,41 @@
 import * as fs from 'fs'
 
 //https://www.reddit.com/r/typescript/comments/ar2t11/semicolons_yea_or_nay/  - decided not to use this time :)
-//Not the best option, but it was easier to test functions
-mainFunction()
 
-let wordsBeforeSorting: string[] = []
+export const myMainMethod =  (path: string) => {
+    const sortedWordsAndCount: Map<string, number> = new Map()
+    let wordsBeforeSorting: string[] = []
+    let data
 
-export function mainFunction() {
-    fs.readFile(process.argv[2], function (err, data) {
-        //If file was not found, throw error
-        if (err) throw err
-        const result = processTheData(data.toString())
+    try {
+        data = fs.readFileSync(path, 'utf-8')
+
+        //If text is there, remove anything that is not necessary
+        //'a' is counted as a word https://www.quora.com/Is-a-a-word-or-a-letter-when-used-in-It-was-a-good-day in eng
+        //First replace removes any spaces, second one removes symbols and the third removes words that have numbers.
+        let arr: string[] = data.toString().replace(/(\r\n|\n|\r)/gm, "").replace(/[&\/\\#,+()$~%.'":*?!<>{}]/g, "").replace(/\s*\b\w*\d\w*\b/g, "").split(' ')
+
+        //Not the best solution, but I will use array because it's easy to sort
+        for (let i of arr) wordsBeforeSorting.push(i.toLowerCase())
+        wordsBeforeSorting.sort()
+
+        //I will put the words to the dictionary and count the occurrences
+        wordsBeforeSorting.forEach((word) => {
+            sortedWordsAndCount.set(word, sortedWordsAndCount.get(word) ? sortedWordsAndCount.get(word)! + 1 : 1)
+        });
 
         //I guess, it would okay to print just this
         //console.log(sortedWordsAndCount)
         //But this looks cleaner I guess
-        for (let key of Array.from(result.keys())) console.log(key, result.get(key))
-    })
-}
+        for (let key of Array.from(sortedWordsAndCount.keys())) console.log(key, sortedWordsAndCount.get(key))
+    }
+    //If file was not found, throw error
+    catch (err) { console.log(err) }
 
-export function processTheData(data: string) {
-    const sortedWordsAndCount: Map<string, number> = new Map()
-    //If text is there, remove anything that is not necessary
-    //'a' is counted as a word https://www.quora.com/Is-a-a-word-or-a-letter-when-used-in-It-was-a-good-day in eng
-    //First replace removes any spaces, second one removes symbols and the third removes words that have numbers.
-    let arr: string[] = data.toString().replace(/(\r\n|\n|\r)/gm, "").replace(/[&\/\\#,+()$~%.'":*?!<>{}]/g, "").replace(/\s*\b\w*\d\w*\b/g, "").split(' ')
-
-    //Not the best solution, but I will use array because it's easy to sort
-    for (let i of arr) wordsBeforeSorting.push(i.toLowerCase())
-    wordsBeforeSorting.sort()
-
-    //I will put the words to the dictionary and count the occurrences
-    wordsBeforeSorting.forEach((word) => {
-        sortedWordsAndCount.set(word, sortedWordsAndCount.get(word) ? sortedWordsAndCount.get(word)! + 1 : 1)
-    });
-
+    //console.log(sortedWordsAndCount)
     return sortedWordsAndCount
 }
+
+//Not the best option, but it was easier to test function
+/* istanbul ignore next */
+myMainMethod(process.argv[2]);
