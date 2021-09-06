@@ -2,7 +2,7 @@ const WordCount = require('../src/WordCount')
 import * as fs from 'fs'
 
 let expected = new Map()
-let path = "test/testfiles/file.txt"
+let path = "test/files/file.txt"
 
 describe('Will write the actual words into the file and then test', () => {
     afterEach(() => {

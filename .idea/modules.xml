@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/proovitooadaptavist.iml" filepath="$PROJECT_DIR$/proovitooadaptavist.iml" />
       <module fileurl="file://$PROJECT_DIR$/src/src.iml" filepath="$PROJECT_DIR$/src/src.iml" />
       <module fileurl="file://$PROJECT_DIR$/test/test.iml" filepath="$PROJECT_DIR$/test/test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/word-count-challenge.iml" filepath="$PROJECT_DIR$/word-count-challenge.iml" />
     </modules>
   </component>
 </project>

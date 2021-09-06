@@ -13,7 +13,7 @@ export const myMainMethod =  (path: string) => {
         //If text is there, remove anything that is not necessary
         //'a' is counted as a word https://www.quora.com/Is-a-a-word-or-a-letter-when-used-in-It-was-a-good-day in eng
         //First replace removes any spaces, second one removes symbols and the third removes words that have numbers.
-        let arr: string[] = data.toString().replace(/(\r\n|\n|\r)/gm, "").replace(/[&\/\\#,+()$~%.'":*?!<>{}]/g, "").replace(/\s*\b\w*\d\w*\b/g, "").split(' ')
+        let arr: string[] = data.toString().replace(/(\r\n|\n|\r)/gm, "").replace(/[&\/\\#,+()$~%.'":*?!<>{};]/g, "").replace(/\s*\b\w*\d\w*\b/g, "").split(' ')
 
         //Not the best solution, but I will use array because it's easy to sort
         for (let i of arr) wordsBeforeSorting.push(i.toLowerCase())
@@ -37,5 +37,4 @@ export const myMainMethod =  (path: string) => {
 }
 
 //Not the best option, but it was easier to test function
-/* istanbul ignore next */
 myMainMethod(process.argv[2]);
