@@ -12,7 +12,7 @@ npx ts-node WordCount.ts path
 or 
 tsc.cmd WordCount.ts | node WordCount.js path
 
-Example: npx ts-node WordCount.ts ../testText.txt
+Example: npx ts-node WordCount.ts ../test.txt
 ```
 
 ## Run tests
